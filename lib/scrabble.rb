@@ -1,7 +1,13 @@
 class Scrabble
 
   def score(word)
-    1
+    return 0 if word == nil
+    word_upcase = word.upcase.chars
+    sum = 0
+      word_upcase.each do |letter|
+        sum += point_values[letter]
+      end
+    return sum
   end
 
   def point_values
@@ -12,7 +18,8 @@ class Scrabble
       "M"=>3, "N"=>1, "O"=>1, "P"=>3,
       "Q"=>10, "R"=>1, "S"=>1, "T"=>1,
       "U"=>1, "V"=>4, "W"=>4, "X"=>8,
-      "Y"=>4, "Z"=>10
+      "Y"=>4, "Z"=>10, ""=>0, " "=>0
     }
   end
+
 end
